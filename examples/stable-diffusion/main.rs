@@ -217,7 +217,7 @@ fn run(args: Args) -> anyhow::Result<()> {
         sd_version,
         ..
     } = args;
-    tch::maybe_init_cuda();
+    // tch::maybe_init_cuda(); // As of tch v0.18+ this is no longer required
     println!("Cuda available: {}", tch::Cuda::is_available());
     println!("Cudnn available: {}", tch::Cuda::cudnn_is_available());
     println!("MPS available: {}", tch::utils::has_mps());
