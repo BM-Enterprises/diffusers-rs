@@ -14,11 +14,11 @@ wget_vocab() {
 wget_weights() {
   header="Authorization: Bearer $1"
   # download weights for clip
-  wget --header="$header" https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/$BRANCH/text_encoder/pytorch_model.bin -O clip.bin
+  wget --header="$header" -c https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/$BRANCH/text_encoder/pytorch_model.bin -O clip.bin
   # download weights for vae
-  wget --header="$header" https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/$BRANCH/vae/diffusion_pytorch_model.bin -O vae.bin
+  wget --header="$header" -c https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/$BRANCH/vae/diffusion_pytorch_model.bin -O vae.bin
   # download weights for unet
-  wget --header="$header" https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/$BRANCH/unet/diffusion_pytorch_model.bin -O unet.bin	
+  wget --header="$header" -c https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/$BRANCH/unet/diffusion_pytorch_model.bin -O unet.bin
   
   # convert to npz
   LD_LIBRARY_PATH= python3 -c "
